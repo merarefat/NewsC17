@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news/home/category_details/category_details.dart';
+import 'package:news/home/category_fragement/category_fregment.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -15,7 +17,7 @@ class _HomescreenState extends State<Homescreen> {
         title: Text("Home",
         style: Theme.of(context).textTheme.headlineLarge,),
       ),
-
+      body: CategoryFregment(),
     );
   }
 }

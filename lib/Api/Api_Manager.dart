@@ -5,6 +5,7 @@ import 'package:http/http.dart';
 import 'package:news/Api/Api_Constants.dart';
 import 'package:news/Api/end_points.dart';
 import 'package:news/Model/Source_Respon.dart';
+import 'package:news/Model/news_response.dart';
 
 class ApiManager {
   /*  https://newsapi.org/v2/top-headlines/sources?apiKey=20adf6b9f2cf4be9961c33d604ef4fcf */
@@ -28,4 +29,27 @@ class ApiManager {
     }
 
   }
+
+  /* https://newsapi.org/?q=apiKey=20adf6b9f2cf4be9961c33d604ef4fcf  */
+
+  static Future<NewsResponse> getNewsBySourcesId(String sourceId) async {
+    Uri url = Uri.https(
+        ApiConstants.baseUrl,
+        EndPoints.newsApi,
+        {
+          'apiKey': ApiConstants.apiKey,
+          'sources': sourceId,
+        });
+
+    try {
+      Response response = await http.get(url);
+      var responseBody = response.body;
+      var json = jsonDecode(responseBody);
+      return NewsResponse.fromJson(json);
+    }
+    catch (e) {
+      rethrow;
+    }
+  }
+
 }
