@@ -47,10 +47,10 @@ class NewsItem extends StatelessWidget {
             children: [
               Expanded(
                 child: Text('By : ${news.author}',
-                  style: Appstyle.medium12gray,),
+                  style: AppStyle.medium12gray,),
               ),
               Text(news.publishedAt ?? '',
-                style: Appstyle.medium12gray,),
+                style: AppStyle.medium12gray,),
             ],
           )
         ],

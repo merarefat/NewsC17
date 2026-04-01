@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../Api/Api_Manager.dart';
-import '../../utils/AppStyle.dart' show Appstyle;
+import '../../utils/AppStyle.dart' show Appstyle, AppStyle;
 
 class MainErrorWidget extends StatelessWidget {
   final String errorMassage;
@@ -22,7 +22,7 @@ class MainErrorWidget extends StatelessWidget {
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: onPresed,
-          child: Text("Try Again", style: Appstyle.medium12gray),
+          child: Text("Try Again", style: AppStyle.medium12gray),
         ),
       ],
     );

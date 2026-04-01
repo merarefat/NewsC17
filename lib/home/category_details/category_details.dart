@@ -3,11 +3,10 @@ import 'package:news/Api/Api_Manager.dart';
 import 'package:news/Model/Source_Respon.dart';
 import 'package:news/home/widget/main_error_widget.dart';
 import 'package:news/home/widget/main_loading_widget.dart';
-
 import '../Source/source_Widget.dart';
 
 class CategoryDetails extends StatefulWidget {
-  const CategoryDetails({super.key});
+  CategoryDetails({super.key});
 
   @override
   State<CategoryDetails> createState() => _CategoryDetailsState();
