@@ -9,8 +9,7 @@ class CategoryFregment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // نربط الحالة بالبروفايدر ليعرف أي صور يختار (Light/Dark)
-    var provider = Provider.of<ThemeProvider>(context);
+    var provider = Provider.of<SettingsProvider>(context);
     bool isDarkMode = provider.currentTheme == ThemeMode.dark;
 
     var categoreList = Category.getCategoriesList(isDarkMode);

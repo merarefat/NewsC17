@@ -13,7 +13,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var provider = Provider.of<ThemeProvider>(context);
+    var provider = Provider.of<SettingsProvider>(context);
     bool isDarkMode = provider.currentTheme == ThemeMode.dark;
 
     return Container(

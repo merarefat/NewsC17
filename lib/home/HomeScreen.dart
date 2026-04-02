@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/home/Draweer/Home_drawe.dart';
 import 'package:provider/provider.dart';
 import 'package:news/Provider/ThemeProvider.dart';
 import 'package:news/home/category_fragement/category_fregment.dart';
@@ -13,7 +14,7 @@ class Homescreen extends StatefulWidget {
 class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ThemeProvider>(context);
+    var provider = Provider.of<SettingsProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -21,23 +22,10 @@ class _HomescreenState extends State<Homescreen> {
             .of(context)
             .textTheme
             .headlineLarge),
-        actions: [
-          IconButton(
-            onPressed: () {
-              provider.toggleTheme(
-                  provider.currentTheme == ThemeMode.light
-                      ? ThemeMode.dark
-                      : ThemeMode.light
-              );
-            },
-            icon: Icon(provider.currentTheme == ThemeMode.light
-                ? Icons.dark_mode
-                : Icons.light_mode),
-          )
-        ],
+
       ),
       drawer: Drawer(
-        child: Homescreen(),
+        child: HomeDrawer(),
       ),
       body: const CategoryFregment(),
     );

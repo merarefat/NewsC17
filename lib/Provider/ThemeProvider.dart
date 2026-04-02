@@ -1,14 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ThemeProvider extends ChangeNotifier {
-  /// data
-  /// change data
-  ///
-  ThemeMode currentTheme = ThemeMode.light;
+class SettingsProvider extends ChangeNotifier {
+  ThemeMode currentTheme = ThemeMode.dark;
+  String currentLanguage = 'en';
 
-  void toggleTheme(ThemeMode theme) {
-    currentTheme = theme;
+  void changeTheme(ThemeMode newTheme) {
+    if (currentTheme == newTheme) return;
+    currentTheme = newTheme;
+    notifyListeners();
+  }
+
+  void changeLanguage(String newLang) {
+    if (currentLanguage == newLang) return;
+    currentLanguage = newLang;
     notifyListeners();
   }
 }

@@ -9,7 +9,7 @@ import 'Screen/Splash_Screen.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+      create: (context) => SettingsProvider(),
       child: const MyApp(),
     ),
   );
@@ -20,19 +20,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var themeProvider = Provider.of<ThemeProvider>(context);
+    var settingsProvider = Provider.of<SettingsProvider>(context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoute.splash,
       routes: {
         AppRoute.splash: (context) => SplashScreen(),
-        AppRoute.homeRouteName: (context) => Homescreen()
+        AppRoute.homeRouteName: (context) => const Homescreen()
       },
-      // هنا الإصلاح: نربط الـ Provider بالـ MaterialApp
+
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
-      themeMode: themeProvider.currentTheme,
+      themeMode: settingsProvider.currentTheme,
+
+
     );
   }
 }
