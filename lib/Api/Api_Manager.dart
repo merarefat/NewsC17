@@ -9,13 +9,15 @@ import 'package:news/Model/news_response.dart';
 
 class ApiManager {
   /*  https://newsapi.org/v2/top-headlines/sources?apiKey=20adf6b9f2cf4be9961c33d604ef4fcf */
-  static Future<SourceRespon> getSources() async {
+  static Future<SourceRespon> getSources(String categoryId) async {
     // http response
     Uri url = Uri.https(
         ApiConstants.baseUrl, // اسم ال server
         EndPoints.sourceApi,
         { // query parameters as map
-          'apiKey': ApiConstants.apiKey});
+          'apiKey': ApiConstants.apiKey,
+          'category': categoryId
+        });
     Response response = await http.get(url);
     // SourceRespon.fromJson(jsonDecode(response.body));
     try {

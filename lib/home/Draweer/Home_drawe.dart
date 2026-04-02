@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 
 import '../../Provider/ThemeProvider.dart';
 class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({super.key});
+  final VoidCallback onDrawerTtemClick;
+
+  HomeDrawer({super.key, required this.onDrawerTtemClick});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,9 @@ class HomeDrawer extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.bold)),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              onDrawerTtemClick();
+            },
           ),
 
           const Divider(color: Colors.grey, indent: 20, endIndent: 20),
