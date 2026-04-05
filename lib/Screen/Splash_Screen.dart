@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:news/utils/AppRoute.dart';
-import '../generated/assets.dart'; // تأكد أن الكلاس اسمه AppAssets أو كما هو معرف عندك
+import '../generated/assets.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

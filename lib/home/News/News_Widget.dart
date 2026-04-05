@@ -19,7 +19,7 @@ class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<NewsResponse>(
-      future: ApiManager.getNewsBySourcesId(widget.source.id ?? ''),
+      future: ApiManager.getNewsBySourcesId(widget.source.id ?? '', 1),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return MainLoadingWidget();
@@ -27,7 +27,7 @@ class _NewsWidgetState extends State<NewsWidget> {
           return MainErrorWidget(
             errorMassage: 'Something Went Wrong',
             onPresed: () {
-              ApiManager.getNewsBySourcesId(widget.source.id ?? '');
+              ApiManager.getNewsBySourcesId(widget.source.id ?? '', 1);
               setState(() {});
             },
           );
@@ -38,7 +38,7 @@ class _NewsWidgetState extends State<NewsWidget> {
           return MainErrorWidget(
             errorMassage: snapshot.data!.massage!,
             onPresed: () {
-              ApiManager.getNewsBySourcesId(widget.source.id ?? '');
+              ApiManager.getNewsBySourcesId(widget.source.id ?? '', 1);
               setState(() {});
             },
           );
